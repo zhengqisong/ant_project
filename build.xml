@@ -1,6 +1,14 @@
 <?xml version="1.0" ?>
 <project name="project" default="default"> 
-    <target name="default" depends="depends" description="description"> 
+    <target name="clean">
+		<delete dir="bin"/>
+	</target>
+    <target name="init" depends="clean">
+    	<mkdir dir="bin" />
+        <echo message="init success"/>
+    </target>
+    
+    <target name="default" depends="init" description="description"> 
         <javac srcdir="src" destdir="bin" includes="org/**"  includeantruntime="true"></javac> 
     	<jar basedir="bin" destfile="dist/ant_project.jar"></jar> 
     	 
